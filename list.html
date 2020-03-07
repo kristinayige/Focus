@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border-radius: 10px;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        th,td {
+            margin-right:auto;
+            text-align: cnter;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #6a0dad;
+            color: white;
+        }
+
+        table {
+            width:70%; 
+            margin-left:15%; 
+            margin-right:15%;
+        }
+        
+        tr {
+            font-size: 30px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #b19cd9;
+        }
+        
+        p{
+            font-size: 60px;
+            color: #b19cd9;
+            text-align: center;
+        }
+        input {
+            position: relative;
+            display: block;
+            width: 20%;
+            margin-left:40%; 
+            margin-right:40%;
+            background: #fff;
+            border-radius: 31px;
+            font-size: 18px;
+            color: #8f8fa1;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+    </style>
+    <script src="temp.js"></script>
+</head>
+
+<body>
+    <p> PLEASE ENTER THE URL: </p>
+    <div id="list"></div>
+    <div id="addToList">
+            <input type="text" id="url" />
+            <input type="submit" id="add" value="add">
+    </div>
+</body>
+
+</html>

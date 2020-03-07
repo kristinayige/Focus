@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Focus",
+  "description": "Focus Blocker",
+  "version": "1.0",
+  
+  "background": {
+    "scripts": ["background.js"],
+	"persistent": true 
+  },
+  "icons": { "16": "images/focus.png"},
+  "browser_action": {
+	"default_icon": "images/focus.png"
+  },
+  "permissions": [
+    "storage",
+	  "tabs",
+    "contextMenus",
+    "webRequest",
+    "*://*/*",
+    "webRequestBlocking",
+    "webNavigation"
+   ]
+}
