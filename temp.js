@@ -7,9 +7,11 @@ function setAddButtonListener() {
         let add = document.getElementById('add');
         add.addEventListener('click', function () {
             addToList();
+            renderTable();
         });
         if (event.keyCode == 13) {
             addToList();
+            renderTable();
         }
     });
 };
@@ -21,52 +23,45 @@ function addToList() {
         blacklist.push(url);
         chrome.storage.sync.set({ 'blockedSites': blacklist }, function () {
             document.getElementById('url').value = "";
-            console.log("new url added");
-            chrome.storage.sync.get('blockedSites', function (data) {
-                let urlId = 0;
-                let res = "";
-                let newList = data.blockedSites;
-                newList.forEach(element => {
-                    res += "<tr><td id =\"" + urlId + "\">"
-                        + element + "</td><td><button id =\"b" + urlId
-                        + "\">&times;</button ></td></tr>";
-                    document.getElementById('list').innerHTML = "<table>" + res + "</table>";
-                    urlId = urlId + 1;
-                });
-                document.getElementById('list').innerHTML = "<table>" + res + "</table>";
-                console.log("rendered new table");
-                let btns = document.getElementsByTagName("button");
-                let len = btns.length;
-                for (let i = 0; i < len; i++) {
-                    let element = btns[i];
-                    element.addEventListener("click", function () {
-                        let curId = element.id.substring(1);
-                        console.log("here");
-                        console.log(curId);
-                        // document.getElementById(element.id.substring(1)).innerHTML;
-                        chrome.storage.sync.get('blockedSites', function (data) {
-                            let newBlackList = data.blockedSites;
-                            newBlackList.splice(curId, 1);
-                            chrome.storage.sync.set({ 'blockedSites': newBlackList}, function () {
-                                let newId = 0;
-                                let newRes = "";
-                                newBlackList.forEach(url => {
-                                    newRes += "<tr><td id =\"" + newId + "\">"
-                                        + url + "</td><td><button id =\"b" + newId
-                                        + "\">&times;</button ></td></tr>";
-                                    document.getElementById('list').innerHTML = "<table>" + newRes + "</table>";
-                                    newId = newId + 1;
-                                });
-                                document.getElementById('list').innerHTML = "<table>" + newRes + "</table>";
-                            });
-                        });
-                    });
-                }
-            });
         });
     });
 }
 
+function renderTable() {
+    chrome.storage.sync.get('blockedSites', function (data) {
+        let urlId = 0;
+        let res = "";
+        let newList = data.blockedSites;
+        newList.forEach(element => {
+            res += "<tr><td id =\"" + urlId + "\">"
+                + element + "</td><td><button id =\"b" + urlId
+                + "\">&times;</button ></td></tr>";
+            document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+            urlId = urlId + 1;
+        });
+        document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+        setDelBtn();
+    });
+}
+
+function setDelBtn() {
+    let btns = document.getElementsByTagName("button");
+    let len = btns.length;
+    for (let i = 0; i < len; i++) {
+        let element = btns[i];
+        btns[i].addEventListener("click", function () {
+            let curId = btns[i].id.substring(1);
+            console.log("here");
+            console.log(curId);
+            chrome.storage.sync.get('blockedSites', function (data) {
+                let newBlackList = data.blockedSites;
+                newBlackList.splice(curId, 1);
+                chrome.storage.sync.set({ 'blockedSites': newBlackList }, function () {});
+            });
+            renderTable();
+        });
+    }
+}
 
 // chrome.storage.sync.get('blockedSites', function (data) {
 //     blockedSites = data.blockedSites;
