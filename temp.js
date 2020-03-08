@@ -57,6 +57,7 @@ function setDelBtn() {
                 let newBlackList = data.blockedSites;
                 newBlackList.splice(curId, 1);
                 chrome.storage.sync.set({ 'blockedSites': newBlackList }, function () {});
+                renderTable();
             });
             renderTable();
         });
