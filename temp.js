@@ -1,7 +1,36 @@
 document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
+    setUnblockListener();
 });
+
+function setUnblockListener(){
+  document.getElementById('unblockButton').addEventListener('click',function(){
+    // setTimeout(function(){},100);
+    chrome.storage.sync.set({'isActivated':false},function(){});
+
+    setTimeout(function(){
+      chrome.storage.sync.set({'isActivated':true},function(){
+        alert("Block Again");
+        chrome.storage.sync.get('blockedSites', function (data) {
+            data.blockedSites.forEach(function (site) {
+              chrome.tabs.query({}, function(tabs){
+                tabs.forEach((item, i) => {
+                  if (item.url.includes(site)) {
+                    chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
+                  }
+                });
+              })
+            });
+        });
+      });
+    },30000);
+    // 一分钟
+    chrome.storage.sync.get('isActivated',function(data){
+      if(!data.isActivated) alert("unblocked");
+    });
+  })
+}
 
 function setAddButtonListener() {
     document.getElementById('url').addEventListener("keypress", function (event) {
