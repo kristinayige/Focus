@@ -9,24 +9,33 @@ function setUnblockListener(){
     // setTimeout(function(){},100);
     chrome.storage.sync.set({'isActivated':false},function(){});
 
-    setTimeout(function(){
-      chrome.storage.sync.set({'isActivated':true},function(){
-        alert("Block Again");
-        chrome.storage.sync.get('blockedSites', function (data) {
-            data.blockedSites.forEach(function (site) {
-              chrome.tabs.query({}, function(tabs){
-                tabs.forEach((item, i) => {
-                  if (item.url.includes(site)) {
-                    chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
-                  }
+    let time =document.getElementById('Timer').value;
+    function Reblock() {
+      // var r=chrome.windows.getLastFocused({},function(window){
+        let r = confirm("Block Again?");
+        if(r==true){
+          clearInterval(interval);
+          chrome.storage.sync.set({'isActivated':true},function(){
+            chrome.storage.sync.get('blockedSites', function (data) {
+                data.blockedSites.forEach(function (site) {
+                  chrome.tabs.query({}, function(tabs){
+                    tabs.forEach((item, i) => {
+                      if (item.url.includes(site)) {
+                        chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
+                      }
+                    });
+                  })
                 });
-              })
             });
-        });
-      });
-    },30000);
-    // 一分钟
-    chrome.storage.sync.get('isActivated',function(data){
+          });
+        }else{
+          setTimeout(Reblock,time*1000);
+        }
+      // });
+    }
+
+    setTimeout(Reblock,time*1000);
+      chrome.storage.sync.get('isActivated',function(data){
       if(!data.isActivated) alert("unblocked");
     });
   })
@@ -43,7 +52,12 @@ function setAddButtonListener() {
         }
     });
 };
-
+// function setUnblockTimeListener(){
+//   document.getElementById('Timer').addEventListener("keypress", function(event){
+//     let time =document.getElementById('Timer');
+//     chrome.storage.sync.set({'time':time},function(){});
+//   })
+// }
 function addToList() {
     let url = document.getElementById('url').value;
     chrome.storage.sync.get('blockedSites', function (data) {
