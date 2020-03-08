@@ -8,11 +8,9 @@ function setAddButtonListener() {
         let add = document.getElementById('add');
         add.addEventListener('click', function () {
             addToList();
-            renderTable();
         });
         if (event.keyCode == 13) {
             addToList();
-            renderTable();
         }
     });
 };
@@ -22,8 +20,9 @@ function addToList() {
     chrome.storage.sync.get('blockedSites', function (data) {
         let blacklist = data.blockedSites;
         blacklist.push(url);
-        chrome.storage.sync.set({ 'blockedSites': blacklist }, function () {
+        chrome.storage.sync.set({'blockedSites': blacklist}, function () {
             document.getElementById('url').value = "";
+            renderTable();
         });
     });
 }
