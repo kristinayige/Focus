@@ -50,7 +50,7 @@
             font-family: Impact, Charcoal, sans-serif;
         }
 
-        #url {
+        /* #url {
             position: relative;
             display: block;
             background: #fff;
@@ -59,16 +59,23 @@
             color: #6a0dad;
             line-height: 1.2;
             margin-bottom: 25px;
-        }
+        }  */
+        #url {
+            opacity: 0.4;
+            font-size: 36px;
+            color: #080808;
+            font-weight: bold;
+        } 
+        
 
-        #add {
+        /* #add {
             background: #B9DFFF;
             color: #fff;
             border: 1px solid #eee;
             border-radius: 40px;
             font-size: 18px;
             text-shadow: none;
-        }
+        } */
 
         #Timer {
             width: 70;
@@ -91,6 +98,11 @@
             font-size: 18px;
             text-shadow: none;
         }
+
+        #addToList {
+            width: 70%;
+            margin-left: 15%;
+        }
     </style>
     <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <script src="temp.js"></script>
@@ -99,6 +111,7 @@
 <body>
     <p> ENTER URL TO UNBLOCK AND SET A TIMER </p>
     <div id="list"></div>
+    <!--
     <div id="addToList">
         <table>
             <tr>
@@ -111,6 +124,7 @@
             </tr>
         </table>
     </div>
+    -->
     <div id="unblock">
         <table>
             <tr>
@@ -125,13 +139,13 @@
     </div>
 
     <!--下面的是有点不打正确，因为占满了全部网页宽度-->
-    <div class="input-bar">
-        <div class="input-bar-item width100">
+    <div class="input-bar" id="addToList">
+        <div class="input-bar-item">
           <form>
              <div class="input-group">
-                <input class="form-control width100">
+                <input class="form-control" id="url">
                 <span class="input-group-btn">
-                  <button class="btn btn-info">MyButton</button>
+                  <button class="btn btn-info" id="add" value="add">Add</button>
                 </span>
             </div>
           </form>
