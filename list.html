@@ -3,15 +3,24 @@
 
 <head>
     <style>
+        body {
+            background: url("/bk.jpg");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
         table {
             border-radius: 10px;
             border-collapse: collapse;
             margin-bottom: 25px;
         }
-        th,td {
-            margin-right:auto;
+
+        th,
+        td {
+            margin-right: auto;
             text-align: cnter;
-            padding: 8px;
         }
 
         th {
@@ -20,9 +29,9 @@
         }
 
         table {
-            width:70%;
-            margin-left:15%;
-            margin-right:15%;
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
         }
 
         tr {
@@ -33,38 +42,85 @@
             background-color: #b19cd9;
         }
 
-        p{
+        p {
             font-size: 60px;
-            color: #b19cd9;
+            color: #fff;
+            opacity: 0.8;
             text-align: center;
+            font-family: Impact, Charcoal, sans-serif;
         }
-        input {
+
+        #url {
             position: relative;
             display: block;
-            width: 20%;
-            margin-left:40%;
-            margin-right:40%;
             background: #fff;
             border-radius: 31px;
             font-size: 18px;
-            color: #8f8fa1;
+            color: #6a0dad;
             line-height: 1.2;
             margin-bottom: 25px;
+        }
+
+        #add {
+            background: #B9DFFF;
+            color: #fff;
+            border: 1px solid #eee;
+            border-radius: 40px;
+            font-size: 18px;
+            text-shadow: none;
+        }
+
+        #Timer {
+            width: 70;
+            position: relative;
+            display: block;
+            background: #fff;
+            border-radius: 31px;
+            font-size: 18px;
+            color: #6a0dad;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        #unblockButton {
+            width: 30%;
+            background: #B9DFFF;
+            color: #fff;
+            border: 1px solid #eee;
+            border-radius: 40px;
+            font-size: 18px;
+            text-shadow: none;
         }
     </style>
     <script src="temp.js"></script>
 </head>
 
 <body>
-    <p> PLEASE ENTER THE URL: </p>
+    <p> ENTER URL TO UNBLOCK AND SET A TIMER </p>
     <div id="list"></div>
     <div id="addToList">
-            <input type="text" id="url" />
-            <input type="submit" id="add" value="add">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="url" />
+                </td>
+                <td>
+                    <input type="submit" id="add" value="add">
+                </td>
+            </tr>
+        </table>
     </div>
     <div id="unblock">
-      <input type="text" id="Timer" value="30" text="seconds"/>
-      <input type="button" id = "unblockButton" value = "unblock">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" id="Timer" value="30" text="seconds" />
+                </td>
+                <td>
+                    <input type="button" id="unblockButton" value="unblock">
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 
