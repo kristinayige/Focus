@@ -27,7 +27,7 @@ chrome.storage.onChanged.addListener(function(changes) {
                         chrome.tabs.query({}, function(tabs){
                           tabs.forEach((item, i) => {
                             if (item.url.includes(site)) {
-                              chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
+                              chrome.tabs.update(item.id, { "url": "/blocked.html" });
                             }
                           });
                         })
