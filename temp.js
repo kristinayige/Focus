@@ -53,16 +53,33 @@ function addToList() {
 function renderTable() {
     chrome.storage.sync.get('blockedSites', function (data) {
         let urlId = 0;
-        let res = "";
+        // let res = "";
+        let res = '<ul class="w3-ul w3-card-4" style="width:50%">';
         let newList = data.blockedSites;
         newList.forEach(element => {
-            res += "<tr><td id =\"" + urlId + "\">"
-                + element + "</td><td><button id =\"b" + urlId
-                + "\">&times;</button ></td></tr>";
-            document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+            // res += "<tr><td id =\"" + urlId + "\">"
+            //     + element + "</td><td><button id =\"b" + urlId
+            //     + "\">&times;</button ></td></tr>";
+            // document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+
+            // res += "<li><tr><td id =\"" + urlId + "\">"
+            //   + element +
+            //   "</td><td><button id =\"b" + urlId
+            //     + "\">&times;</button ></td></tr>";
+            // res += "</li>";
+            // urlId = urlId + 1;
+            
+            res += "<li id =\"" + urlId + "\">"
+              + element +
+              "</td><td><button id =\"b" + urlId
+                + "\">&times;</button >";
+            res += "</li>";
             urlId = urlId + 1;
+
         });
-        document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+        res += '</ul>';
+        // document.getElementById('list').innerHTML = "<table>" + res + "</table>";
+        document.getElementById('list').innerHTML = '<p>BlockedSites:</p><div class="w3-container blockList">' + res + "</div>";
         setDelBtn();
     });
 }

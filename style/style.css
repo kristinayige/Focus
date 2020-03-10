@@ -15,7 +15,20 @@ table {
 th,
 td {
     margin-right: auto;
-    text-align: cnter;
+    text-align: center;
+}
+.blockList{
+    margin-left: 35%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+li{
+    
+    font-size: 32px;
+    color: #fff;
+    opacity: 0.8;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
 }
 
 th {
@@ -67,18 +80,18 @@ p {
 }
 
 
-/* #add {
-    background: #B9DFFF;
+#add {
+    /* background: #B9DFFF;
     color: #fff;
     border: 1px solid #eee;
-    border-radius: 40px;
-    font-size: 18px;
-    text-shadow: none;
-} */
+    border-radius: 40px; */
+    font-size: 20px;
+    /* text-shadow: none; */
+}
 
 #Timer {
     text-align: center;
-    font-size: 42px;
+    font-size: 60px;
     opacity: 0.4;
     height: 100px;
     /* width: 70;
@@ -94,12 +107,12 @@ p {
 
 #unblockButton {
     /* width: 30%; */
-    background: #B9DFFF;
+    /* background: #B9DFFF;
     color: #fff;
     border: 1px solid #eee;
-    border-radius: 40px;
-    font-size: 18px;
-    text-shadow: none;
+    border-radius: 40px; */
+    font-size: 20px;
+    /* text-shadow: none; */
 }
 
 #addToList {
@@ -109,8 +122,8 @@ p {
 }
 
 #unblock {
-    width: 50%;
-    margin-left: 25%;
+    width: 70%;
+    margin-left: 15%;
     margin-bottom: 30px;
 }
 
@@ -122,3 +135,8 @@ p {
     margin-top: 30px;
     /* display: none; */
 }
+
+/* #app {
+    position: relative;
+    left: -25px;
+} */
