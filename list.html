@@ -2,110 +2,11 @@
 <html>
 
 <head>
-    <style>
-        body {
-            background: url("/bk.jpg");
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        table {
-            border-radius: 10px;
-            border-collapse: collapse;
-            margin-bottom: 25px;
-        }
-
-        th,
-        td {
-            margin-right: auto;
-            text-align: cnter;
-        }
-
-        th {
-            background-color: #6a0dad;
-            color: white;
-        }
-
-        table {
-            width: 70%;
-            margin-left: 15%;
-            margin-right: 15%;
-        }
-
-        tr {
-            font-size: 30px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #b19cd9;
-        }
-
-        p {
-            font-size: 60px;
-            color: #fff;
-            opacity: 0.8;
-            text-align: center;
-            font-family: Impact, Charcoal, sans-serif;
-        }
-
-        /* #url {
-            position: relative;
-            display: block;
-            background: #fff;
-            border-radius: 31px;
-            font-size: 18px;
-            color: #6a0dad;
-            line-height: 1.2;
-            margin-bottom: 25px;
-        }  */
-        #url {
-            opacity: 0.4;
-            font-size: 36px;
-            color: #080808;
-            font-weight: bold;
-        } 
-        
-
-        /* #add {
-            background: #B9DFFF;
-            color: #fff;
-            border: 1px solid #eee;
-            border-radius: 40px;
-            font-size: 18px;
-            text-shadow: none;
-        } */
-
-        #Timer {
-            width: 70;
-            position: relative;
-            display: block;
-            background: #fff;
-            border-radius: 31px;
-            font-size: 18px;
-            color: #6a0dad;
-            line-height: 1.2;
-            margin-bottom: 25px;
-        }
-
-        #unblockButton {
-            width: 30%;
-            background: #B9DFFF;
-            color: #fff;
-            border: 1px solid #eee;
-            border-radius: 40px;
-            font-size: 18px;
-            text-shadow: none;
-        }
-
-        #addToList {
-            width: 70%;
-            margin-left: 15%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/timer.css">
     <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <script src="temp.js"></script>
+    <script src="timer.js"></script>
 </head>
 
 <body>
@@ -124,7 +25,7 @@
             </tr>
         </table>
     </div>
-    -->
+    
     <div id="unblock">
         <table>
             <tr>
@@ -137,20 +38,52 @@
             </tr>
         </table>
     </div>
+    -->
 
     <!--下面的是有点不打正确，因为占满了全部网页宽度-->
+
+    <!--
+    <div class="row">
+        <div class="col-lg-8">
+            <button class="btn btn-info" id="add" value="add">Add</button>
+        </div>
+        <div class="col-lg-4"></div>
+            <button class="btn btn-info" id="add" value="add">Add</button>
+        </div>
+    </div>
+
+
+    -->
     <div class="input-bar" id="addToList">
         <div class="input-bar-item">
           <form>
-             <div class="input-group">
+            <div class="input-group">
                 <input class="form-control" id="url">
                 <span class="input-group-btn">
-                  <button class="btn btn-info" id="add" value="add">Add</button>
+                    <button class="btn btn-info square100" id="add" value="add">Add</button>
+                </span>
+            </div>
+          </form>
+        </div>
+    </div>
+
+    <!--下面的是有点不打正确，因为占满了全部网页宽度-->
+    <div class="input-bar" id="unblock">
+        <div class="input-bar-item">
+          <form>
+             <div class="input-group" >
+                <input type="time" class="form-control" id="setTime">
+                <span class="input-group-btn" id="beginCount">
+                  <button class="btn btn-info square100">Unblock</button>
                 </span>
             </div>
           </form>
         </div>
       </div>
+
+    <div id="app"></div>
+
+    <button class="btn btn-info id=weekReport">Weekly Report</button>
 </body>
 
 </html>
