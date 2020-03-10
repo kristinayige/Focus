@@ -1,0 +1,124 @@
+body {
+    background: url("/bk.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+table {
+    border-radius: 10px;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+th,
+td {
+    margin-right: auto;
+    text-align: cnter;
+}
+
+th {
+    background-color: #6a0dad;
+    color: white;
+}
+
+table {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+tr {
+    font-size: 30px;
+}
+
+tr:nth-child(even) {
+    background-color: #b19cd9;
+}
+
+p {
+    font-size: 60px;
+    color: #fff;
+    opacity: 0.8;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+.height100 {
+    height: 100px;
+}
+.square100 {
+    width: 100px;
+    height: 100px;
+}
+
+.toCenter {
+    margin-left: -9%; 
+    text-align: center;
+}
+
+#url {
+    height: 100px;
+    opacity: 0.4;
+    font-size: 36px;
+    color: #080808;
+    font-weight: bold;
+}
+
+
+/* #add {
+    background: #B9DFFF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 40px;
+    font-size: 18px;
+    text-shadow: none;
+} */
+
+#Timer {
+    text-align: center;
+    font-size: 42px;
+    opacity: 0.4;
+    height: 100px;
+    /* width: 70;
+    position: relative;
+    display: block;
+    background: #fff;
+    border-radius: 31px;
+    font-size: 18px;
+    color: #6a0dad;
+    line-height: 1.2;
+    margin-bottom: 25px; */
+}
+
+#unblockButton {
+    /* width: 30%; */
+    background: #B9DFFF;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 40px;
+    font-size: 18px;
+    text-shadow: none;
+}
+
+#addToList {
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 30px;
+}
+
+#unblock {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 30px;
+}
+
+#expandButton{
+    margin-top: 30px;
+}
+
+#weekreport{
+    margin-top: 30px;
+    /* display: none; */
+}
