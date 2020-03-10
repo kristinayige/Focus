@@ -14,6 +14,34 @@ chrome.tabs.onUpdated.addListener(function blockAction(tabId, info, tab) {
     }
   });
 });
+chrome.storage.onChanged.addListener(function(changes) {
+    for(let key in changes){
+      if(key === 'isActivated' &&changes['isActivated'].newValue == false &&changes['isActivated'].oldValue == true ){
+        function Reblock() {
+            let r = confirm("Block again?");
+            if(r==true){
+              chrome.storage.sync.set({'isActivated':true},function(){
+                chrome.storage.sync.get('blockedSites', function (data) {
+                    data.blockedSites.forEach(function (site) {
+                      chrome.tabs.query({}, function(tabs){
+                        tabs.forEach((item, i) => {
+                          if (item.url.includes(site)) {
+                            chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
+                          }
+                        });
+                      })
+                    });
+                });
+              });
+            }else{
+              setTimeout(Reblock,3000);
+            }
+        }
+        setTimeout(Reblock,3000);
+        break;
+      }
+    }
+});
 
 chrome.contextMenus.create({
   id: "baFilterListMenu",

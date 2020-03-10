@@ -8,35 +8,10 @@ function setUnblockListener(){
   document.getElementById('unblockButton').addEventListener('click',function(){
     // setTimeout(function(){},100);
     chrome.storage.sync.set({'isActivated':false},function(){});
-
     let time =document.getElementById('Timer').value;
-    function Reblock() {
-      // var r=chrome.windows.getLastFocused({},function(window){
-        let r = confirm("Block Again?");
-        if(r==true){
-          clearInterval(interval);
-          chrome.storage.sync.set({'isActivated':true},function(){
-            chrome.storage.sync.get('blockedSites', function (data) {
-                data.blockedSites.forEach(function (site) {
-                  chrome.tabs.query({}, function(tabs){
-                    tabs.forEach((item, i) => {
-                      if (item.url.includes(site)) {
-                        chrome.tabs.update(item.id, { "url": "https://www.nct2018.com/#" });
-                      }
-                    });
-                  })
-                });
-            });
-          });
-        }else{
-          setTimeout(Reblock,time*1000);
-        }
-      // });
-    }
-
-    setTimeout(Reblock,time*1000);
-      chrome.storage.sync.get('isActivated',function(data){
-      if(!data.isActivated) alert("unblocked");
+    chrome.storage.sync.set({'timer':time},function(){});
+    chrome.storage.sync.get('isActivated',function(data){
+    if(!data.isActivated) alert("unblocked");
     });
   })
 }
