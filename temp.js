@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
     setUnblockListener();
+    document.getElementById('expandButton').addEventListener('click',weeklyReport);
 });
 
 function setUnblockListener(){
@@ -27,12 +28,7 @@ function setAddButtonListener() {
         }
     });
 };
-// function setUnblockTimeListener(){
-//   document.getElementById('Timer').addEventListener("keypress", function(event){
-//     let time =document.getElementById('Timer');
-//     chrome.storage.sync.set({'time':time},function(){});
-//   })
-// }
+
 function addToList() {
     let url = document.getElementById('url').value;
     chrome.storage.sync.get('blockedSites', function (data) {
@@ -82,35 +78,27 @@ function setDelBtn() {
     }
 }
 
-// chrome.storage.sync.get('blockedSites', function (data) {
-//     blockedSites = data.blockedSites;
-// });
+function weeklyReport(){
+  if(document.getElementById('expandButton').innerHTML =='See Weekly Report'){
+    document.getElementById('expandButton').innerHTML ='Hide Weekly Report';
+    chrome.storage.sync.get(['thisWeek', 'lastWeek'],function(data){
+      document.getElementById("thisWeek").innerHTML=data.thisWeek;
+      document.getElementById("improvements").innerHTML=data.thisWeek-data.lastWeek;
+      let x = document.getElementById("weekreport");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    });
+  }else{
+    document.getElementById('expandButton').innerHTML ='See Weekly Report';
+    let x = document.getElementById("weekreport");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
 
-// chrome.webRequest.onBeforeRequest.addListener(
-//     page => {
-//         console.log('page blocked - ' + page.url);
-
-//         return {
-//           cancel: true,
-//         };
-//       }, {urls: ["http://www.youtube.com"]}, ["blocking"]);
-
-// function requestChecker(request) {
-//     console.log("onBeforeRequest");
-//     if (request && request.url) {
-//       if (request.type == "main_frame") {
-//         var tabBlockingState = 0;
-//         for (var i = 0; i < blockedSites.length; ++i) {
-//           if (request.url.match(new RegExp(
-//               ".*" + blockedSites[i] + ".*", "i"))) {
-//             tabBlockingState = blockedSites[i];
-//           }
-//         }
-//         if (tabBlockingState != 0) {
-//           var redirectUrl = chrome.extension.getURL(
-//               "blockedSite.html?blocked=" + tabBlockingState);
-//           return { redirectUrl: redirectUrl };
-//         }
-//       }
-//     }
-//   }
+}
