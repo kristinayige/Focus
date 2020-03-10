@@ -2,7 +2,16 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
     setUnblockListener();
+<<<<<<< HEAD
     document.getElementById('expandButton').addEventListener('click',weeklyReport);
+=======
+    //initialization
+    chrome.storage.sync.set({'block_mode_up':false},function(){});
+    //set lock mode button
+    document.getElementById('lock_mode').addEventListener("click", function () {
+        chrome.storage.sync.set({'block_mode_up':true},function(){});
+    });
+>>>>>>> d7a0244ba2fe14f267aa94934fce628132c84d4c
 });
 
 function setUnblockListener(){
@@ -29,6 +38,15 @@ function setAddButtonListener() {
     });
 };
 
+<<<<<<< HEAD
+=======
+// function setUnblockTimeListener(){
+//   document.getElementById('Timer').addEventListener("keypress", function(event){
+//     let time =document.getElementById('Timer');
+//     chrome.storage.sync.set({'time':time},function(){});
+//   })
+// }
+>>>>>>> d7a0244ba2fe14f267aa94934fce628132c84d4c
 function addToList() {
     let url = document.getElementById('url').value;
     chrome.storage.sync.get('blockedSites', function (data) {
@@ -62,6 +80,10 @@ function setDelBtn() {
     let btns = document.getElementsByTagName("button");
     let len = btns.length;
     for (let i = 0; i < len; i++) {
+        if(btns[i].id[0] != 'b'){
+            console.log(btns[i].id[0]);
+            continue;
+        }
         let element = btns[i];
         btns[i].addEventListener("click", function () {
             let curId = btns[i].id.substring(1);
@@ -70,6 +92,7 @@ function setDelBtn() {
             chrome.storage.sync.get('blockedSites', function (data) {
                 let newBlackList = data.blockedSites;
                 newBlackList.splice(curId, 1);
+                console.log("why?")
                 chrome.storage.sync.set({ 'blockedSites': newBlackList }, function () {});
                 renderTable();
             });

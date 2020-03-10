@@ -8,7 +8,7 @@ chrome.tabs.onUpdated.addListener(function blockAction(tabId, info, tab) {
     if(data.isActivated==true){
       data.blockedSites.forEach(function (site) {
         if (tab.url.includes(site)) {
-          chrome.tabs.update(tab.id, { "url": "https://www.nct2018.com/#" });
+          chrome.tabs.update(tab.id, { "url": "/blocked.html" });
         }
       });
     }
