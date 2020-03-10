@@ -93,6 +93,7 @@ function setDelBtn() {
 }
 
 function weeklyReport(){
+  alert("here");
   if(document.getElementById('expandButton').innerHTML =='See Weekly Report'){
     document.getElementById('expandButton').innerHTML ='Hide Weekly Report';
     chrome.storage.sync.get(['thisWeek', 'lastWeek'],function(data){

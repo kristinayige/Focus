@@ -177,9 +177,9 @@
         <div class="input-bar-item">
           <form>
              <div class="input-group" >
-                <input type="time" class="form-control" id="setTime">
+                <input type="time" class="form-control" id="Timer">
                 <span class="input-group-btn" id="beginCount">
-                  <button class="btn btn-info square100">Unblock</button>
+                  <button class="btn btn-info square100" id="unblockButton">Unblock</button>
                 </span>
             </div>
           </form>
@@ -196,17 +196,10 @@
           <h5 style="display:inline" >You have improved </h5>
           <h4 id="improvements" style="display:inline"></h4>
           <h5 style="display:inline">Comparing to last Week </h5>
-        </div>
-    <div >
-
       </div>
-
-    <!-- conflict begin -->
     <div id="app"></div>
 
-    <button class="btn btn-info id=weekReport">Weekly Report</button>
-    <!-- 上面是我的，timer和一个weekly report的button -->
-      <span class="input-group-btn">
+
     <span class="input-group-btn">
             <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
     </span>
