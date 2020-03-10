@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     document.getElementById('lock_mode').addEventListener("click", function () {
         chrome.storage.sync.set({'block_mode_up':true},function(){});
     });
+    document.getElementById('unlock_mode').addEventListener("click", function () {
+        chrome.storage.sync.set({'block_mode_up':false},function(){});
+    });
 });
 
 function setUnblockListener(){
