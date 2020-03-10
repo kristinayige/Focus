@@ -2,16 +2,15 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
     setUnblockListener();
-<<<<<<< HEAD
+
     document.getElementById('expandButton').addEventListener('click',weeklyReport);
-=======
+
     //initialization
     chrome.storage.sync.set({'block_mode_up':false},function(){});
     //set lock mode button
     document.getElementById('lock_mode').addEventListener("click", function () {
         chrome.storage.sync.set({'block_mode_up':true},function(){});
     });
->>>>>>> d7a0244ba2fe14f267aa94934fce628132c84d4c
 });
 
 function setUnblockListener(){
@@ -38,15 +37,7 @@ function setAddButtonListener() {
     });
 };
 
-<<<<<<< HEAD
-=======
-// function setUnblockTimeListener(){
-//   document.getElementById('Timer').addEventListener("keypress", function(event){
-//     let time =document.getElementById('Timer');
-//     chrome.storage.sync.set({'time':time},function(){});
-//   })
-// }
->>>>>>> d7a0244ba2fe14f267aa94934fce628132c84d4c
+
 function addToList() {
     let url = document.getElementById('url').value;
     chrome.storage.sync.get('blockedSites', function (data) {
