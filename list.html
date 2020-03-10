@@ -4,7 +4,8 @@
 <head>
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/timer.css">
-    <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <script src="temp.js"></script>
     <script src="timer.js"></script>
 </head>
@@ -28,51 +29,61 @@
     -->
     <div class="input-bar" id="addToList">
         <div class="input-bar-item">
-          <form>
-             <div class="input-group">
-                <input class="form-control" id="url">
-                <span class="input-group-btn">
-                  <button class="btn btn-info square100" id="add" value="add">Add</button>
-                </span>
-            </div>
-          </form>
+            <form>
+                <div class="input-group">
+                    <input class="form-control" id="url">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info square100" id="add" value="add">Add</button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
 
     <div class="input-bar" id="unblock">
         <div class="input-bar-item">
-          <form>
-             <div class="input-group" >
-                <input type="time" class="form-control" id="Timer">
-                <span class="input-group-btn" id="beginCount">
-                  <button class="btn btn-info square100" id="unblockButton">Unblock</button>
-                </span>
-            </div>
-          </form>
+            <form>
+                <div class="input-group">
+                    <input type="time" class="form-control" id="Timer">
+                    <span class="input-group-btn" id="beginCount">
+                        <button class="btn btn-info square100" id="unblockButton">Unblock</button>
+                    </span>
+                </div>
+            </form>
         </div>
     </div>
     <div id="app"></div>
     <!--下面的是有点不打正确，因为占满了全部网页宽度-->
-    
 
-        <div class="toCenter">
-            <button class="btn btn-info" id="expandButton">See Weekly Report</button>
-            <div id="weekreport" style="display:none">
+
+    <div class="toCenter">
+        <button class="btn btn-info" id="expandButton">See Weekly Report</button>
+        <div id="weekreport" style="display:none">
             <h1>Weekly Reports</h1>
             <h3>Congratulations!</h3>
             <h5>This week, you saved </h5>
             <h4 id="thisWeek"></h4>
-            <h5 display = "display:inline">You have improved </h5>
+            <h5 display="display:inline">You have improved </h5>
             <h4 id="improvements"></h4>
-            <h5 display = "display:inline">Comparing to last Week </h5>
-            </div>
+            <h5 display="display:inline">Comparing to last Week </h5>
         </div>
+    </div>
 
 
-
-      <span class="input-group-btn">
-            <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
-    </span>
+    <table id="block_general">
+        <tr id = "newtr">
+            <td>
+                <span class="block_up">
+                    <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
+                </span>
+            </td>
+            <td>
+                <span class="unlock_up">
+                    <button class="btn btn-info" id="unlock_mode" value="unlock">Stop Working</button>
+                </span>
+            </td>
+        </tr>
+    </table>
 
 </body>
 

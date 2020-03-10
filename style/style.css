@@ -33,9 +33,18 @@ tr {
     font-size: 30px;
 }
 
+#newtr {
+    font-size: 30px;
+}
+
+
 tr:nth-child(even) {
     background-color: #b19cd9;
 }
+
+/* tr:nth-child(odd) {
+    background-color: #fff;
+} */
 
 p {
     font-size: 60px;
@@ -66,6 +75,10 @@ p {
     font-weight: bold;
 }
 
+.block_up{
+    text-align: center;
+
+}
 
 /* #add {
     background: #B9DFFF;
