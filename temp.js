@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
     setUnblockListener();
-
     document.getElementById('expandButton').addEventListener('click',weeklyReport);
-
     //initialization
     chrome.storage.sync.set({'block_mode_up':false},function(){});
     //set lock mode button
@@ -17,8 +15,11 @@ function setUnblockListener(){
   document.getElementById('unblockButton').addEventListener('click',function(){
     // setTimeout(function(){},100);
     chrome.storage.sync.set({'isActivated':false},function(){});
-    let time =document.getElementById('Timer').value;
-    chrome.storage.sync.set({'timer':time},function(){});
+    let time = document.getElementById('Timer').value;
+    let min = time.split(":")[0];
+    let sec = time.split(":")[1];
+    TIME_LIMIT = 60 * parseInt(min) + parseInt(sec);
+    chrome.storage.sync.set({'timer':TIME_LIMIT},function(){});
     chrome.storage.sync.get('isActivated',function(data){
     if(!data.isActivated) alert("unblocked");
     });
@@ -36,7 +37,6 @@ function setAddButtonListener() {
         }
     });
 };
-
 
 function addToList() {
     let url = document.getElementById('url').value;
@@ -93,13 +93,14 @@ function setDelBtn() {
 }
 
 function weeklyReport(){
-  alert("here");
   if(document.getElementById('expandButton').innerHTML =='See Weekly Report'){
+    //alert(document.getElementById("weekreport").style.display);
     document.getElementById('expandButton').innerHTML ='Hide Weekly Report';
     chrome.storage.sync.get(['thisWeek', 'lastWeek'],function(data){
       document.getElementById("thisWeek").innerHTML=data.thisWeek;
       document.getElementById("improvements").innerHTML=data.thisWeek-data.lastWeek;
       let x = document.getElementById("weekreport");
+      
       if (x.style.display === "none") {
         x.style.display = "block";
       } else {
