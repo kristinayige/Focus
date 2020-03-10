@@ -2,8 +2,113 @@
 <html>
 
 <head>
+    <!-- conflict begin -->
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/timer.css">
+    <!-- ****上面是我的，整进css里了，你们看一下下面有什么可以放进style.css一起整合的 -->
+    <style>
+        body {
+            background: url("/bk.jpg");
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        table {
+            border-radius: 10px;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        th,
+        td {
+            margin-right: auto;
+            text-align: cnter;
+        }
+
+        th {
+            background-color: #6a0dad;
+            color: white;
+        }
+
+        table {
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        tr {
+            font-size: 30px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #b19cd9;
+        }
+
+        p {
+            font-size: 60px;
+            color: #fff;
+            opacity: 0.8;
+            text-align: center;
+            font-family: Impact, Charcoal, sans-serif;
+        }
+
+        /* #url {
+            position: relative;
+            display: block;
+            background: #fff;
+            border-radius: 31px;
+            font-size: 18px;
+            color: #6a0dad;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }  */
+        #url {
+            opacity: 0.4;
+            font-size: 36px;
+            color: #080808;
+            font-weight: bold;
+        }
+
+
+        /* #add {
+            background: #B9DFFF;
+            color: #fff;
+            border: 1px solid #eee;
+            border-radius: 40px;
+            font-size: 18px;
+            text-shadow: none;
+        } */
+
+        #Timer {
+            width: 70;
+            position: relative;
+            display: block;
+            background: #fff;
+            border-radius: 31px;
+            font-size: 18px;
+            color: #6a0dad;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        #unblockButton {
+            width: 30%;
+            background: #B9DFFF;
+            color: #fff;
+            border: 1px solid #eee;
+            border-radius: 40px;
+            font-size: 18px;
+            text-shadow: none;
+        }
+
+        #addToList {
+            width: 70%;
+            margin-left: 15%;
+        }
+    </style>
+    <!-- end begin -->
     <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <script src="temp.js"></script>
     <script src="timer.js"></script>
@@ -79,11 +184,31 @@
             </div>
           </form>
         </div>
-      </div>
 
+        <button class="btn btn-info" id="expandButton">See Weekly Report</button>
+        <div id="weekreport">
+          <h1>Weekly Reports</h1>
+          <h3>Congratulations!</h3>
+          <h5>This week, you saved </h5>
+          <h4 id="thisWeek"></h4>
+          <h5 display = "display:inline">You have improved </h5>
+          <h4 id="improvements"></h4>
+          <h5 display = "display:inline">Comparing to last Week </h5>
+        </div>
+
+
+      </div>
+    
+    <!-- conflict begin -->
     <div id="app"></div>
 
     <button class="btn btn-info id=weekReport">Weekly Report</button>
+    <!-- 上面是我的，timer和一个weekly report的button -->
+      <span class="input-group-btn">
+            <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
+    </span>
+    <!-- conflict end -->
+
 </body>
 
 </html>
