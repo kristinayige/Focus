@@ -8,10 +8,32 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     //set lock mode button
     document.getElementById('lock_mode').addEventListener("click", function () {
         console.log("wtf");
-        chrome.storage.sync.set({'block_mode_up':true},function(){});
+        chrome.storage.sync.get('block_mode_up',function(data){
+          if(data.block_mode_up==false){
+            chrome.storage.sync.set({'block_mode_up':true, 'blockTime':Date.now()},function(){});
+          }
+        })
     });
     document.getElementById('unlock_mode').addEventListener("click", function () {
-        chrome.storage.sync.set({'block_mode_up':false},function(){});
+      alert(Date.now());
+      chrome.storage.sync.get(['block_mode_up','blockTime','thisWeek','thisWeekNum'],function(data){
+        if(data.block_mode_up==true){
+          let  getWeek = function() {
+                          var today = new Date();
+                          var onejan = new Date(today.getYear(),0,1);
+                          var dayOfYear = ((today - onejan + 86400000)/86400000);
+                          return Math.ceil(dayOfYear/7)
+                        };
+          let currentWeekNum = getWeek();
+          if(data.thisWeekNum ==currentWeekNum){
+            // 还是这周
+            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':data.thisWeek+Math.floor((Date.now()-data.blockTime)/60000)},function(){});
+          }else{
+            // 这是新一周
+            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':Math.floor((Date.now()-data.blockTime)/60000),'thisWeekNum':currentWeekNum, 'lastWeek':data.thisWeek,'lastWeekNum':data.lastWeekNum},function(){});
+          }
+        }
+      })
     });
 });
 
@@ -72,7 +94,7 @@ function renderTable() {
             //     + "\">&times;</button ></td></tr>";
             // res += "</li>";
             // urlId = urlId + 1;
-            
+
             res += "<li id =\"" + urlId + "\">"
               + element +
               "</td><td><button id =\"b" + urlId
@@ -121,7 +143,7 @@ function weeklyReport(){
       document.getElementById("thisWeek").innerHTML=data.thisWeek;
       document.getElementById("improvements").innerHTML=data.thisWeek-data.lastWeek;
       let x = document.getElementById("weekreport");
-      
+
       if (x.style.display === "none") {
         x.style.display = "block";
       } else {
