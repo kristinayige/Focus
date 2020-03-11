@@ -97,13 +97,8 @@ function renderTable() {
             //     + "\">&times;</button ></td></tr>";
             // res += "</li>";
             // urlId = urlId + 1;
-<<<<<<< HEAD
-
-            res += "<li id =\"" + urlId + "\">"
-=======
             
             res += "<table id =\"" + urlId + "\"> <td width=\"95%\">"
->>>>>>> 4f61bee522435729300c84ef3c815b5de519a390
               + element +
               "</td><td width=\"5%\"><button class=\"newbtn\" id =\"b" + urlId
                 + "\">&times;</button ></td>";
