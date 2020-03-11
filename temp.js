@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
           if(data.thisWeekNum ==currentWeekNum){
             // 还是这周
             alert(Math.floor((Date.now()-data.blockTime)));
-            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':data.thisWeek+Math.floor((Date.now()-data.blockTime)/60000)},function(){});
+            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':data.thisWeek+Date.now()-data.blockTime},function(){});
           }else{
             // 这是新一周
-            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':Math.floor((Date.now()-data.blockTime)/60000),'thisWeekNum':currentWeekNum, 'lastWeek':data.thisWeek,'lastWeekNum':data.lastWeekNum},function(){});
+            chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':Date.now()-data.blockTime,'thisWeekNum':currentWeekNum, 'lastWeek':data.thisWeek,'lastWeekNum':data.lastWeekNum},function(){});
           }
         }
       })
