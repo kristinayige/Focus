@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     document.getElementById('unlock_mode').addEventListener("click", function () {
         chrome.storage.sync.set({'block_mode_up':false},function(){});
     });
+    document.getElementById('week').addEventListener("click", function () {
+        chrome.tabs.update(this.tab, { "url": "/weeklyreport.html" });
+    });
 });
 
 function setUnblockListener(){
@@ -73,11 +76,11 @@ function renderTable() {
             // res += "</li>";
             // urlId = urlId + 1;
             
-            res += "<li id =\"" + urlId + "\">"
+            res += "<table id =\"" + urlId + "\"> <td width=\"95%\">"
               + element +
-              "</td><td><button id =\"b" + urlId
-                + "\">&times;</button >";
-            res += "</li>";
+              "</td><td width=\"5%\"><button class=\"newbtn\" id =\"b" + urlId
+                + "\">&times;</button ></td>";
+            res += "</table>";
             urlId = urlId + 1;
 
         });

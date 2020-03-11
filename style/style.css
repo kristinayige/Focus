@@ -1,6 +1,15 @@
 
-body {
-    background: url("/bk_new.jpg");
+button{
+    border-color: #DDE5ED;
+    background-color: #DDE5ED;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    border-radius: 30px;
+}
+#thisbody {
+    /* background: url("/bk_new.jpg"); */
+    background-color: #DDE5ED;
+    /* color: #080808; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -19,13 +28,24 @@ td {
     text-align: center;
 }
 .blockList{
-    margin-left: 25%;
+    margin-left: 23%;
     margin-right:32%;
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+a:-webkit-any-link {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+a{
+    color:none;
+}
+
 li{
-    
     font-size: 32px;
     color: #fff;
     opacity: 0.8;
@@ -47,6 +67,12 @@ table {
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.newbtn{
+    margin-right: 0%;
+    margin-left: auto;
+    margin-right: 0%;
 }
 
 tr {
