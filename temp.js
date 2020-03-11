@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
         })
     });
     document.getElementById('unlock_mode').addEventListener("click", function () {
-      alert(Date.now());
+      // alert(Date.now());
       chrome.storage.sync.get(['block_mode_up','blockTime','thisWeek','thisWeekNum'],function(data){
         if(data.block_mode_up==true){
           let  getWeek = function() {
@@ -97,13 +97,8 @@ function renderTable() {
             //     + "\">&times;</button ></td></tr>";
             // res += "</li>";
             // urlId = urlId + 1;
-<<<<<<< HEAD
 
-            res += "<li id =\"" + urlId + "\">"
-=======
-            
             res += "<table id =\"" + urlId + "\"> <td width=\"95%\">"
->>>>>>> 4f61bee522435729300c84ef3c815b5de519a390
               + element +
               "</td><td width=\"5%\"><button class=\"newbtn\" id =\"b" + urlId
                 + "\">&times;</button ></td>";
@@ -144,28 +139,7 @@ function setDelBtn() {
 }
 
 function weeklyReport(){
-  if(document.getElementById('expandButton').innerHTML =='See Weekly Report'){
-    //alert(document.getElementById("weekreport").style.display);
-    document.getElementById('expandButton').innerHTML ='Hide Weekly Report';
     chrome.storage.sync.get(['thisWeek', 'lastWeek'],function(data){
       document.getElementById("thisWeek").innerHTML=data.thisWeek;
-      document.getElementById("improvements").innerHTML=data.thisWeek-data.lastWeek;
-      let x = document.getElementById("weekreport");
-
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    });
-  }else{
-    document.getElementById('expandButton').innerHTML ='See Weekly Report';
-    let x = document.getElementById("weekreport");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
+      document.getElementById("improvements").innerHTML=data.thisWeek-data.lastWeek;});
 }
