@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
         }
       })
     });
+    document.getElementById('week').addEventListener("click", function () {
+        chrome.tabs.update(this.tab, { "url": "/weeklyreport.html" });
+    });
 });
 
 function setUnblockListener(){
@@ -94,12 +97,17 @@ function renderTable() {
             //     + "\">&times;</button ></td></tr>";
             // res += "</li>";
             // urlId = urlId + 1;
+<<<<<<< HEAD
 
             res += "<li id =\"" + urlId + "\">"
+=======
+            
+            res += "<table id =\"" + urlId + "\"> <td width=\"95%\">"
+>>>>>>> 4f61bee522435729300c84ef3c815b5de519a390
               + element +
-              "</td><td><button id =\"b" + urlId
-                + "\">&times;</button >";
-            res += "</li>";
+              "</td><td width=\"5%\"><button class=\"newbtn\" id =\"b" + urlId
+                + "\">&times;</button ></td>";
+            res += "</table>";
             urlId = urlId + 1;
 
         });
