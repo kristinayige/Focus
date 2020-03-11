@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
           let currentWeekNum = getWeek();
           if(data.thisWeekNum ==currentWeekNum){
             // 还是这周
-            alert(Math.floor((Date.now()-data.blockTime)));
+            // alert(Math.floor((Date.now()-data.blockTime)));
             chrome.storage.sync.set({'block_mode_up':false, 'blockTime':null,'thisWeek':data.thisWeek+Date.now()-data.blockTime},function(){});
           }else{
             // 这是新一周
