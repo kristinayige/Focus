@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function initialization() {
     var blockedSites = [];
-    chrome.storage.sync.set({'blockedSites': blockedSites, 'isActivated':true, 'thisWeek':2, 'lastWeek':3, 'timeLimit': 0}, function () {});
+    chrome.storage.sync.set({'blockedSites': blockedSites, 'isActivated':true, 'thisWeek':2, 'thisWeekNum':0, 'lastWeek':3,'lastWeekNum':0,'timeLimit': 0,'blockTime':null, 'unblockTime':null}, function () {});
 });
 
 chrome.tabs.onUpdated.addListener(function blockAction(tabId, info, tab) {
