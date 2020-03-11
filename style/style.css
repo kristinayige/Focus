@@ -69,6 +69,10 @@ table {
     margin-right: 15%;
 }
 
+.without::-webkit-datetime-edit-ampm-field {
+    display: none;
+  }
+
 .newbtn{
     margin-right: 0%;
     margin-left: auto;
@@ -175,7 +179,7 @@ p {
 
 #Timer {
     text-align: center;
-    font-size: 60px;
+    font-size: 50px;
     opacity: 0.4;
     height: 100px;
     /* width: 70;
