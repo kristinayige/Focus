@@ -4,6 +4,7 @@ button{
     background-color: #DDE5ED;
     margin-top: 50%;
     margin-bottom: 50%;
+    border-width: 0ex;
     border-radius: 30px;
 }
 #thisbody {
