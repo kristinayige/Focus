@@ -5,13 +5,42 @@
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/timer.css">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <base href="/">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    <link data-require="bootstrap-css" data-semver="3.3.6" rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
     <script src="temp.js"></script>
     <script src="timer.js"></script>
 </head>
 
+<!-- <table id="block_general">
+        <tr id = "newtr">
+            <td>
+                <span class="block_up">
+                    <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
+                </span>
+            </td>
+            <td>
+                <span class="unlock_up">
+                    <button class="btn btn-info" id="unlock_mode" value="unlock">Stop Working</button>
+                </span>
+            </td>
+        </tr>
+</table> -->
+
+<div class="wrapper">
+    <ul>
+        <li><button id="week" value="week">Weekly Report</button></li>
+        <li><button id="lock_mode" value="block">Start Working</button></li>
+        <li><button id="unlock_mode" value="unlock">Stop Working</button></li>
+    </ul>
+</div>
+
 <body>
-    <p> ENTER URL TO UNBLOCK AND SET A TIMER </p>
+    <!-- <p> ENTER URL TO UNBLOCK AND SET A TIMER </p> -->
+    <p> Enter url to unblock and set a timer!</p>
     <div id="list"></div>
     <!--
     <div id="addToList">
@@ -56,7 +85,7 @@
     <!--下面的是有点不打正确，因为占满了全部网页宽度-->
 
 
-    <div class="toCenter">
+    <!-- <div class="toCenter">
         <button class="btn btn-info" id="expandButton">See Weekly Report</button>
         <div id="weekreport" style="display:none">
             <h1>Weekly Reports</h1>
@@ -67,23 +96,7 @@
             <h4 id="improvements"></h4>
             <h5 display="display:inline">Comparing to last Week </h5>
         </div>
-    </div>
-
-
-    <table id="block_general">
-        <tr id = "newtr">
-            <td>
-                <span class="block_up">
-                    <button class="btn btn-info" id="lock_mode" value="block">Start Working</button>
-                </span>
-            </td>
-            <td>
-                <span class="unlock_up">
-                    <button class="btn btn-info" id="unlock_mode" value="unlock">Stop Working</button>
-                </span>
-            </td>
-        </tr>
-    </table>
+    </div> -->
 
 </body>
 

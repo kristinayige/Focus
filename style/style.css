@@ -1,5 +1,6 @@
+
 body {
-    background: url("/bk.jpg");
+    background: url("/bk_new.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -18,7 +19,8 @@ td {
     text-align: center;
 }
 .blockList{
-    margin-left: 35%;
+    margin-left: 25%;
+    margin-right:32%;
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -29,6 +31,11 @@ li{
     opacity: 0.8;
     text-align: center;
     font-family: Impact, Charcoal, sans-serif;
+}
+
+ul.w3-ul.w3-card-4 {
+    margin-left: 00%;
+    border-bottom: none;
 }
 
 th {
@@ -60,12 +67,50 @@ tr:nth-child(even) {
 } */
 
 p {
-    font-size: 60px;
-    color: #fff;
-    opacity: 0.8;
+    font-size: 50px;
+    color: #4C516D;
+    opacity: 1.0;
     text-align: center;
-    font-family: Impact, Charcoal, sans-serif;
+    font-family: "Lobster", serif;
 }
+
+#week {
+    border: 0em;
+    font-family: "Allerta Stencil", Sans-serif;
+    background-color: #233f57;
+}
+#week:hover {
+    background-color: #111;
+}
+
+#lock_mode{
+    border: 0em;
+    font-family: "Allerta Stencil", Sans-serif;
+    background-color: #233f57;
+}
+
+#lock_mode:hover {
+    background-color: #111;
+}
+
+#unlock_mode{
+    border: 0em;
+    font-family: "Allerta Stencil", Sans-serif;
+    background-color: #233f57;
+}
+
+#unlock_mode:hover {
+    background-color: #111;
+}
+
+#blockedsites {
+    border-color: #080808;
+    border-width: 3px;
+    border-radius: 16px;
+    font-family: "Allerta Stencil", Sans-serif;
+    font-size: 50px;
+}
+
 
 .height100 {
     height: 100px;
@@ -148,6 +193,38 @@ p {
     margin-top: 30px;
     /* display: none; */
 }
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapper ul {
+  /* display: inline-block; */
+  list-style-type: none;
+  font-family: "Raleway";
+  margin-bottom: 25px;
+  padding: 0;
+  font-size: 60px;
+  font-weight: 600;
+  overflow: hidden;
+  text-align: center;
+  background-color: #233f57;
+}
+
+.wrapper li {
+  display: inline-block;
+}
+
+.wrapper li button {
+  display: block;
+  color: white;
+  padding: 27px 19px;
+  text-decoration: none;
+}
+
+/* .wrapper li button:hover {
+  background-color: #111;
+} */
 
 /* #app {
     position: relative;

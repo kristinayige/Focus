@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     renderTable();
     setAddButtonListener();
     setUnblockListener();
-    document.getElementById('expandButton').addEventListener('click',weeklyReport);
+    //document.getElementById('expandButton').addEventListener('click',weeklyReport);
     //initialization
     chrome.storage.sync.set({'block_mode_up':false},function(){});
     //set lock mode button
     document.getElementById('lock_mode').addEventListener("click", function () {
+        console.log("wtf");
         chrome.storage.sync.set({'block_mode_up':true},function(){});
     });
     document.getElementById('unlock_mode').addEventListener("click", function () {
@@ -57,7 +58,7 @@ function renderTable() {
     chrome.storage.sync.get('blockedSites', function (data) {
         let urlId = 0;
         // let res = "";
-        let res = '<ul class="w3-ul w3-card-4" style="width:50%">';
+        let res = '<ul class="w3-ul w3-card-4" style="width:120%">';
         let newList = data.blockedSites;
         newList.forEach(element => {
             // res += "<tr><td id =\"" + urlId + "\">"
@@ -82,7 +83,7 @@ function renderTable() {
         });
         res += '</ul>';
         // document.getElementById('list').innerHTML = "<table>" + res + "</table>";
-        document.getElementById('list').innerHTML = '<p>BlockedSites:</p><div class="w3-container blockList">' + res + "</div>";
+        document.getElementById('list').innerHTML = '<p id=\"blockedsites\">BlockedSites :</p><div class="w3-container blockList">' + res + "</div>";
         setDelBtn();
     });
 }
