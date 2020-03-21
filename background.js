@@ -50,7 +50,7 @@ chrome.storage.onChanged.addListener(function (changes) {
 
 chrome.contextMenus.create({
   id: "baFilterListMenu",
-  title: "Show filter list",
+  title: "Open Focus Main Menu",
   contexts: ["browser_action"]
 });
 
