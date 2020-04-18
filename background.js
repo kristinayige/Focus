@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function initialization() {
     var blockedSites = [];
-    chrome.storage.sync.set({'blockedSites': blockedSites, 'isActivated':true, 'thisWeek':0, 'thisWeekNum':99148, 'lastWeek':0,'lastWeekNum':99147,'timeLimit': 0,'blockTime':null, 'unblockTime':null}, function () {});
+    chrome.storage.sync.set({'blockedSites': blockedSites, 'isActivated':true, 'thisWeek':0, 'thisWeekNum':99148, 'lastWeek':0,'lastWeekNum':99147,'timeLimit': 0,'blockTime':null, 'unblockTime':null, 'noti':false}, function () {});
 });
 
 chrome.tabs.onUpdated.addListener(function blockAction(tabId, info, tab) {
@@ -46,6 +46,20 @@ chrome.storage.onChanged.addListener(function (changes) {
       break;
     }
   }
+});
+
+chrome.runtime.onMessage.addListener((request, sender, response) => {
+  // console.log(request, sender);
+  // bouncing back to ui.js; since ui.js is loaded on its frame, we need to send the message to all frames
+  chrome.storage.sync.get(['noti'], function (data) {
+    if (data.noti == true) {
+      if (request.cmd === 'popup-request' && request.silent === false) {
+        chrome.tabs.sendMessage(sender.tab.id, Object.assign(request, {
+          frameId: sender.frameId
+        }));
+      }
+    }
+  });
 });
 
 chrome.contextMenus.create({

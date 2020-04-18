@@ -7,13 +7,19 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     chrome.storage.sync.set({'block_mode_up':false},function(){});
     //set lock mode button
     document.getElementById('lock_mode').addEventListener("click", function () {
-        console.log("wtf");
         chrome.storage.sync.get('block_mode_up',function(data){
           if(data.block_mode_up==false){
             chrome.storage.sync.set({'block_mode_up':true, 'blockTime':Date.now()},function(){});
           }
         })
     });
+
+    document.getElementById('notification').addEventListener("click", function () {
+      chrome.storage.sync.get('noti',function(data){
+        chrome.storage.sync.set({'noti':true});
+      })
+    });
+
     document.getElementById('unlock_mode').addEventListener("click", function () {
       // alert(Date.now());
       chrome.storage.sync.get(['block_mode_up','blockTime','thisWeek','thisWeekNum'],function(data){
@@ -72,11 +78,17 @@ function addToList() {
     let url = document.getElementById('url').value;
     chrome.storage.sync.get('blockedSites', function (data) {
         let blacklist = data.blockedSites;
-        blacklist.push(url);
-        chrome.storage.sync.set({'blockedSites': blacklist}, function () {
-            document.getElementById('url').value = "";
-            renderTable();
-        });
+        if (!blacklist.includes(url)){
+          blacklist.push(url);
+          chrome.storage.sync.set({'blockedSites': blacklist}, function () {
+              document.getElementById('url').value = "";
+              renderTable();
+          });
+        }
+        else{
+          alert("Oops! You have already added this url.");
+          return;
+        }
     });
 }
 
