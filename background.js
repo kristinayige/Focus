@@ -48,19 +48,19 @@ chrome.storage.onChanged.addListener(function (changes) {
   }
 });
 
-chrome.runtime.onMessage.addListener((request, sender, response) => {
-  // console.log(request, sender);
-  // bouncing back to ui.js; since ui.js is loaded on its frame, we need to send the message to all frames
-  chrome.storage.sync.get(['noti'], function (data) {
-    if (data.noti == true) {
-      if (request.cmd === 'popup-request' && request.silent === false) {
-        chrome.tabs.sendMessage(sender.tab.id, Object.assign(request, {
-          frameId: sender.frameId
-        }));
-      }
-    }
-  });
-});
+// chrome.runtime.onMessage.addListener((request, sender, response) => {
+//   // console.log(request, sender);
+//   // bouncing back to ui.js; since ui.js is loaded on its frame, we need to send the message to all frames
+//   chrome.storage.sync.get(['noti'], function (data) {
+//     if (data.noti == true) {
+//       if (request.cmd === 'popup-request' && request.silent === false) {
+//         chrome.tabs.sendMessage(sender.tab.id, Object.assign(request, {
+//           frameId: sender.frameId
+//         }));
+//       }
+//     }
+//   });
+// });
 
 chrome.contextMenus.create({
   id: "baFilterListMenu",
