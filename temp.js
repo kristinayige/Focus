@@ -121,7 +121,7 @@ function renderTable() {
   chrome.storage.sync.get('blockedSites', function (data) {
     let urlId = 0;
     // let res = "";
-    let res = '<ul class="w3-ul w3-card-4" style="width:120%">';
+    let res = '<ul class="w3-ul w3-card-4" style="width:120%" id = "form_list">';
     let newList = data.blockedSites;
     newList.forEach(element => {
       // res += "<tr><td id =\"" + urlId + "\">"
