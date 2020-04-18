@@ -1,10 +1,42 @@
 document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
+    interval = ""; // global varible
+    // starting = "";
+    // ending = "";
     renderTable();
     setAddButtonListener();
     setUnblockListener();
     //document.getElementById('expandButton').addEventListener('click',weeklyReport);
     //initialization
     chrome.storage.sync.set({'block_mode_up':false},function(){});
+
+    chrome.storage.sync.get(['start_time', 'end_time', 'auto_mode'],function(data){
+      var start_time;
+      var end_time;
+      if(!data.start_time){
+        /*need to change in the future*/
+        document.getElementById("auto-start").defaultValue = "09:00";
+        document.getElementById("auto-end").defaultValue = "17:00";
+      } else {
+        document.getElementById("auto-start").defaultValue = data.start_time;
+        start_time = data.start_time;
+        document.getElementById("auto-end").defaultValue = data.end_time;
+        end_time = data.end_time;
+      }
+
+      console.log(data.auto_mode);
+      
+      var checkBox = document.getElementById("auto-check");
+      if (checkBox.checked === false && data.auto_mode === true){
+        console.log("previously it is auto!")
+        document.getElementById("auto-check").checked = true;
+        //document.getElementById("auto-toggle").click();
+        let start_num = parseInt(start_time.split(':')[0] + start_time.split(':')[1])
+        let end_num = parseInt(end_time.split(':')[0] + end_time.split(':')[1])
+        autoMode(start_num, end_num);
+      }
+    });
+
+
     //set lock mode button
     document.getElementById('lock_mode').addEventListener("click", function () {
         console.log("wtf");
@@ -12,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
           if(data.block_mode_up==false){
             chrome.storage.sync.set({'block_mode_up':true, 'blockTime':Date.now()},function(){});
           }
-        })
+        });
     });
     document.getElementById('unlock_mode').addEventListener("click", function () {
       // alert(Date.now());
@@ -39,7 +71,100 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
     document.getElementById('week').addEventListener("click", function () {
         chrome.tabs.update(this.tab, { "url": "/weeklyreport.html" });
     });
+
+    document.getElementById('setting').addEventListener("click", function(){
+      document.getElementById("setting-panel").classList.toggle("show");
+    });
+
+    
+    
+    document.getElementById('auto-toggle').addEventListener("click", function(){
+      var checkBox;
+      chrome.storage.sync.get('auto_mode', function(data){
+        checkBox = data.auto_mode;
+        console.log(checkBox);
+        //checkBox = false;
+        chrome.storage.sync.set({'auto_mode': !checkBox},function(){
+          console.log('mode set to ' + (!checkBox).toString());
+        });
+        // TODO: set auto_mode at the beginning!
+        var start_time = document.getElementById("auto-start").value;
+        var end_time = document.getElementById("auto-end").value;
+        console.log(checkBox);
+        if (checkBox === false){
+          console.log(start_time);
+          console.log(end_time);
+          chrome.storage.sync.set({'start_time': start_time, 'end_time': end_time},function(){
+            console.log('set start and end time');
+          });
+          let start_num = parseInt(start_time.split(':')[0] + start_time.split(':')[1])
+          let end_num = parseInt(end_time.split(':')[0] + end_time.split(':')[1])
+          autoMode(start_num, end_num);
+        } else {
+          //should clear interval
+          clearInterval(interval);
+        }
+
+
+      });
+      
+
+
+
+      
+    });
+    // document.getElementById('auto-check').addEventListener("click", function(){
+    //   console.log("CoolAgain!");
+      
+    // });
+    // // Close the dropdown if the user clicks outside of it
+    // //TODO: 似乎没用
+    // window.onclick = function(event) {
+    //   if (!event.target.matches('#set-icon')) {
+    //     console.log(event.target);
+    //     var dropdowns = document.getElementById("setting-panel");
+    //     if (dropdowns.classList.contains('show')) {
+    //       dropdowns.classList.toggle('show');
+    //     }
+    //     // var i;
+    //     // for (i = 0; i < dropdowns.length; i++) {
+    //     //   var openDropdown = dropdowns[i];
+    //     //   if (openDropdown.classList.contains('show')) {
+    //     //     openDropdown.classList.remove('show');
+    //     //   }
+    //     // }
+    //   }
+    // }
 });
+function autoMode(start_time, end_time){
+  //TODO: what is already in the process of counting?
+  /*
+  1. Assume users will reopen Focus for the next day
+  */
+  var today = new Date();
+  let time_now = today.getHours() * 100 + today.getMinutes();
+  var started = false; // started or not
+  console.log(time_now)
+  //interval is a globle varible
+  interval = setInterval(function(){
+    if(time_now > end_time || time_now < start_time){
+      console.log("Not to block because not at the time");
+      //trigger end
+      if(started === true){
+        console.log("Now end");
+        started = false;
+        document.getElementById('unlock_mode').click();
+        clearInterval(interval);
+      } else {
+        console.log("will start at " + start_time.toString());
+      }
+    } else {
+      console.log("Now Start");
+      document.getElementById('lock_mode').click();
+    }
+  }, 1000); // check for every second
+
+}
 
 function setUnblockListener(){
   document.getElementById('unblockButton').addEventListener('click',function(){

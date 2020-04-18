@@ -21,6 +21,32 @@
         <li><button id="week" value="week">Weekly Report</button></li>
         <li><button id="lock_mode" value="block">Start Working</button></li>
         <li><button id="unlock_mode" value="unlock">Stop Working</button></li>
+        <li>
+            <button id="setting" value="set"><img src="setting.png" alt="Setting" id="set-icon" height="50px"></button>
+        </li>
+        <div id="setting-panel">
+            <!-- TODO: need to store checked or unchecked -->
+            <div id="setting-title">
+                Set auto-start/end
+                <label class="switch">
+                <input type="checkbox" id="auto-check">
+                <span class="slider round" id="auto-toggle"></span>
+                </label>
+            </div>
+            <form>
+                <label style="font-size: 30px;
+                font-family: 'Allerta Stencil', Sans-serif;
+                color: #4C516D;" for="auto-start">Starting Time:</label><br>
+                <input type="time" id="auto-start" name="auto-start"><br>
+                <label style="font-size: 30px;
+                font-family: 'Allerta Stencil', Sans-serif;
+                color: #4C516D;" for="auto-end">End Time:</label><br>
+                <input type="time" id="auto-end" name="auto-end">
+
+            </form>
+            
+        </div>
+        
     </ul>
 </div>
 
