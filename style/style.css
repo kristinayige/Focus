@@ -21,6 +21,12 @@ table {
     border-radius: 10px;
     border-collapse: collapse;
     margin-bottom: 25px;
+    /* width: 100px; */
+}
+
+#form_list {
+    margin-left: 0px;
+    text-align: center;
 }
 
 th,
@@ -98,11 +104,11 @@ tr:nth-child(even) {
 } */
 
 p {
-    font-size: 50px;
+    font-size: 29px;
     color: #4C516D;
     opacity: 1.0;
     text-align: center;
-    font-family: "Lobster", serif;
+    font-family: montserrat, sans-serif;
 }
 
 #week {
@@ -172,9 +178,18 @@ p {
     border-width: 3px;
     border-radius: 16px;
     font-family: "Allerta Stencil", Sans-serif;
-    font-size: 50px;
+    font-size: 70px;
 }
 
+#check_noti {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+}
+
+#noti {
+    text-align: center;
+}
 
 .height100 {
     height: 100px;
@@ -209,6 +224,18 @@ p {
     border-radius: 40px; */
     font-size: 20px;
     /* text-shadow: none; */
+}
+
+#img_front {
+    max-width: 100%;
+    height: auto;
+}
+
+#icon {
+    padding: 0%;
+    width: 1in;
+    height: 1in;
+    display: inline-block;
 }
 
 #Timer {
