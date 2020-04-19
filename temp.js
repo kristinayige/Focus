@@ -204,7 +204,7 @@ function setUnblockListener() {
 function setAddButtonListener() {
   document.getElementById('url').addEventListener("keypress", function (event) {
     let add = document.getElementById('add');
-    let url = document.getElementById('url').value;
+    let url = document.getElementById('url').value.toLowerCase();
     chrome.storage.sync.get('blockedSites', function (data) {
       let blacklist = data.blockedSites;
       if (blacklist.includes(url)) {
@@ -226,7 +226,7 @@ function setAddButtonListener() {
 };
 
 function addToList() {
-  let url = document.getElementById('url').value;
+  let url = document.getElementById('url').value.toLowerCase();
   chrome.storage.sync.get('blockedSites', function (data) {
     let blacklist = data.blockedSites;
     if (!blacklist.includes(url)) {
