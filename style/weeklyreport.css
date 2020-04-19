@@ -1,5 +1,7 @@
+
 #weekreport #head {
-  color: #FF1493;
+  color: #233f57;
+  font-family: "Allerta Stencil", Sans-serif;
   font-size: 500%;
   font-weight:normal;
 }
@@ -7,7 +9,7 @@
 margin-left: 100px;
 }
 #weekreport #congratulation {
-  color: Black;
+  color: DimGrey;
   font-size: 200%;
   font-style: normal;
   font-weight:normal;
@@ -23,6 +25,20 @@ margin-left: 100px;
   font-family: Charcoal, sans-serif;
 }
 #thisWeek {
+  color: #8B0000;
+  font-size: 300%;
+  font-style: normal;
+  font-weight:normal;
+  font-family:Impact, Charcoal, sans-serif;
+}
+#blockedTimes{
+  color: #8B0000;
+  font-size: 300%;
+  font-style: normal;
+  font-weight:normal;
+  font-family:Impact, Charcoal, sans-serif;
+}
+#cumuBlockTimes{
   color: #8B0000;
   font-size: 300%;
   font-style: normal;

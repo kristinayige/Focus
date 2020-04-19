@@ -9,14 +9,15 @@
     <link rel="stylesheet" type="text/css" href="style/weeklyreport.css">
     <script src="weeklyreport.js"></script>
     <title>Focus: Weekly Report</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
 </head>
 
-<body>
+<body style="background-color:#DDE5ED">
 
     <div id="weekreport" style="display:block">
         <p id='head' class="toCenter">Weekly Reports</p>
         <div class="leftShift">
-        <p id='congratulation'  style="display:inline">Congratulations!</h3>
+        <p id='congratulation'style="display:inline">Congratulations!</h3>
           <br>
         <p class='wording'style="display:inline">This week, you worked</h5>
         <p id="thisWeek" style="display:inline">5</h4>
@@ -34,10 +35,18 @@
           <p id="blockedTimes" style="display:inline">0</p>
           <p class='wording' style="display:inline"> times</h5>
           <br>
-          <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Ffocus.com&layout=box_count&size=large&width=68&height=58&appId" width="68" height="58" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="I love focus!!!!" data-show-count="false">
-            <img src="twitter.png" height="40" width="40">
+
+            <div class="w3-container blockList"></div>
+          <a href = "https://www.facebook.com/sharer/sharer.php?u=https://www.focus.com">
+          <img src="facebook.png" height="60" width="60">
           </a>
+          <a href="https://twitter.com/intent/tweet?text=" id="twitter">
+            <img src="twitter.png" height="60" width="60" >
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=focus.com&title=FOCUS!&summary=&source=" id = "linkedin">
+            <img src="linkedin.png" height="60" width="60" >
+          </a>
+
         </div>
     </div>
 </body>
