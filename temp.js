@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
       if (data.block_mode_up == false) {
         chrome.storage.sync.set({ 'block_mode_up': true, 'blockTime': Date.now() }, function () { });
       }
+      document.getElementById("lock_mode").style.backgroundColor = "#111"; 
     })
     // chrome.storage.sync.get(['thisWeek','blockedTimes', 'cumuBlockTimes'],function(data){
     //   let  getWeek = function() {
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
           var dayOfYear = ((today - onejan + 86400000) / 86400000);
           return Math.ceil(dayOfYear / 7)
         };
+        document.getElementById("lock_mode").style.backgroundColor = "#233f57"; 
         let currentWeekNum = getWeek();
         if (data.thisWeekNum == currentWeekNum) {
           // 还是这周
