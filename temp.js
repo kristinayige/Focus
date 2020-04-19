@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
           return Math.ceil(dayOfYear / 7)
         };
         document.getElementById("lock_mode").style.backgroundColor = "#233f57"; 
+        document.getElementById("lock_mode").style.cssText = "#lock_mode{border: 0em;font-family: \"Allerta Stencil\", Sans-serif;background-color: #000;}"
         let currentWeekNum = getWeek();
         if (data.thisWeekNum == currentWeekNum) {
           // 还是这周
