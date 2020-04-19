@@ -22,9 +22,6 @@
     "webRequest",
     "*://*/*",
     "webRequestBlocking",
-    "webNavigation",
-  ],
-
-    "content_security_policy":"script-src 'self' https://connect.facebook.net; object-src 'self'",
-
+    "webNavigation"
+  ]
 }
