@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function renderFilterListTable() {
         autoMode(start_num, end_num);
       } else {
         //should clear interval
+        document.getElementById('unlock_mode').click();
         clearInterval(interval);
       }
 

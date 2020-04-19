@@ -109,14 +109,14 @@ p {
     opacity: 1.0;
     text-align: center;
     font-family: montserrat, sans-serif;
-}
+}                                                                                                                                            
 
 #week {
     border: 0em;
     font-family: "Allerta Stencil", Sans-serif;
     background-color: #233f57;
 }
-#week:hover {
+#week:hover {      
     background-color: #111;
 }
 
@@ -153,7 +153,7 @@ p {
 #setting-panel {
     display: none;
     text-align: left;
-    padding: 10px;
+    padding: 20px;
     position: absolute;
     right: 100px;
     background-color: #DDE5ED;
@@ -163,9 +163,22 @@ p {
     z-index: 100;
 }
 #setting-title {
+    border-radius : 10px;
+    background-color: #5bc0de;
+    padding: 15px;
     font-size: 30px;
     font-family: "Allerta Stencil", Sans-serif;
-    color: #4C516D;
+    color: white;
+}
+#auto-start{
+    border-radius: 10px;
+    padding-left : 20px;
+    opacity : 0.8;
+}
+#auto-end{
+    border-radius: 10px;
+    padding-left: 20px;
+    opacity : 0.8;
 }
 .regular-font {
     font-size: 30px;
@@ -285,6 +298,10 @@ p {
     /* display: none; */
 }
 
+#setting-title{
+    background-color: #5bc0de;
+}
+
 .wrapper {
     text-align: center;
 }
@@ -316,6 +333,7 @@ p {
 /* Bellows are for switch button */
 .switch {
 position: relative;
+left: 50px;
 display: inline-block;
 width: 60px;
 height: 34px;
@@ -353,11 +371,11 @@ transition: .4s;
 }
 
 input:checked + .slider {
-background-color: #2196F3;
+background-color: #5cb85c;
 }
 
 input:focus + .slider {
-box-shadow: 0 0 1px #2196F3;
+box-shadow: 0 0 1px #5cb85c;
 }
 
 input:checked + .slider:before {
