@@ -6,6 +6,9 @@ Our app is published in Chrome Store. Click [here](https://chrome.google.com/web
 For more information about our development, please take a look at this [EECS 441 wiki page](http://soloway.pbworks.com/w/page/138225867/Focus_new)
 
 A typical page of Focus is as the following:
+<div align="center">
+  <img height="400" src="https://github.com/kristinayige/Focus/blob/master/overview.png"><br>
+</div>
 
 # Main Fetures:
 Focus has the following three main components:
@@ -18,7 +21,7 @@ If you want to unblock the website in the blocklist just for a short while for a
 ## Weekly Report
 In order to incent our users, we also make statistics of users' performance every week. Users are encouraged to share their achivements in social medias
 
-
+There is a short video to demo how to use Blocklist and Weekly Report [here](https://drive.google.com/file/d/1DKniFlvL0iN5lFwqf6ij6wx-Gv5-TWbB/view?usp=sharing)
 
 # Developer Notes:
 This section is for developers for Focus only.
